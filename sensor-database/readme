@@ -1,0 +1,43 @@
+
+HOW TO PREPARE SENSOR DATA (IV) TO BE UPLOADED TO DATA BASE:
+
+0. It requires Root installed
+1. Run the bash script "sensor-config.sh"
+
+Example:
+./sensor-config.sh 322497 44 4 CUT
+
+The arguments needed are:
+batch number: 6 digits
+wafer number: 2 digits
+sensor number: 1 digit
+step: CIS, NEW, CUT, BAM...
+
+2. The script asks for a temperature during the IV scan. 
+Add it, manually in Celsius degrees.
+
+echo "Type temperature: "
+read temperature
+
+
+3. The two files required to upload to the database are generated and the tar file is created.
+
+SensorTest_S322497-44-4_CUT.inf.txt --> There is a space for comments. If you want to add something, you can do it manually.
+SensorTest_S322497-44-4_CUT.tab.txt
+
+4. It is recommended to check the txt files during the first times using this script.
+
+------------------------------------------------------------
+NOTES:
+
+1. The script creates a folder (example:"SensorTest_S322497-44-4_CUT")
+where all the information is saved.
+First, the script copies the ivCurve.log to this folder from a folder called B322497-44-4 in the example.
+IMPORTANT: Confirm that the path to take ivCurve.log fits to you.
+
+2. A root macro is launched to manage data, calculate parameters as slope and normalized current and grade the sensor.
+IMPORTANT: Do not separate sensor-config.sh from BMT_sensor.C
+
+
+
+
