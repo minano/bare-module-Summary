@@ -1,8 +1,11 @@
 #/bin/bash
-
+****************************
+TO BE FINISHED
+****************************
 BATCH=$1
 WAFER=$2
 SENSOR=$3
+
 moduleID=B${1}-${2}-${3}
 
 if [ ${1} == '' ]; then
